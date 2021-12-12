@@ -1,10 +1,11 @@
 import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import { Link } from 'react-router-dom';
 
 const movieCard = ({Data}) => {
   return (
     <>
-      { Data.map(({title,description,rating,posterURL}) => (
+      { Data.map(({id,title,description,rating,posterURL}) => (
       <div className="col-sm">
         <div className="card" style={{ width: "18rem" }}>
           <img src={posterURL} className="card-img-top" alt="bill" />
@@ -16,7 +17,9 @@ const movieCard = ({Data}) => {
               starCount={rating}
               value="rate1"
             />
-            <a href="https://www.imdb.com/title/tt5363918/mediaviewer/rm504141569/" className="btn btn-outline-warning">Watch Now</a>
+
+          <Link to={`description/${id}`} className="btn btn-outline-warning">Watch Now</Link>
+         
           </div>
         </div>
       </div>
